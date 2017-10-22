@@ -1,6 +1,6 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
+    "name": "sharminex81/attendance-management",
+    "description": "Attendance Management System",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
