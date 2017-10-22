@@ -9,9 +9,9 @@
     <link rel="shortcut icon" type="image/png" href="/admin-theme/img/favicon.png"/>
     <!-- =============== VENDOR STYLES ===============-->
     <!-- FONT AWESOME-->
-    <link rel="stylesheet" href="/admin-theme/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/admin-theme/assets/fontawesome/css/font-awesome.min.css">
     <!-- SIMPLE LINE ICONS-->
-    <link rel="stylesheet" href="/admin-theme/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/admin-theme/assets/simple-line-icons/css/simple-line-icons.css">
 
     <!-- =============== BOOTSTRAP STYLES ===============-->
     <link rel="stylesheet" href="/admin-theme/css/bootstrap.css" id="bscss">
@@ -72,15 +72,15 @@
     </div>
     <!-- =============== VENDOR SCRIPTS ===============-->
     <!-- MODERNIZR-->
-    <script src="/admin-theme/vendor/modernizr/modernizr.custom.js"></script>
+    <script src="/admin-theme/assets/modernizr/modernizr.custom.js"></script>
     <!-- JQUERY-->
-    <script src="/admin-theme/vendor/jquery/dist/jquery.js"></script>
+    <script src="/admin-theme/assets/jquery/dist/jquery.js"></script>
     <!-- BOOTSTRAP-->
-    <script src="/admin-theme/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/admin-theme/assets/bootstrap/dist/js/bootstrap.js"></script>
     <!-- STORAGE API-->
-    <script src="/admin-theme/vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <script src="/admin-theme/assets/jQuery-Storage-API/jquery.storageapi.js"></script>
     <!-- PARSLEY-->
-    <script src="/admin-theme/vendor/parsleyjs/dist/parsley.min.js"></script>
+    <script src="/admin-theme/assets/parsleyjs/dist/parsley.min.js"></script>
     <!-- =============== APP SCRIPTS ===============-->
     <script src="/admin-theme/js/app.js"></script>
 </body>

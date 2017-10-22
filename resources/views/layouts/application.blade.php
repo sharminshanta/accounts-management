@@ -10,23 +10,23 @@
     <link rel="shortcut icon" type="image/png" href="//admin-theme/img/favicon.png"/>
     <!-- =============== VENDOR STYLES ===============-->
     <!-- FONT AWESOME-->
-    <link rel="stylesheet" href="/admin-theme/vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/admin-theme/assets/fontawesome/css/font-awesome.min.css">
     <!-- SIMPLE LINE ICONS-->
-    <link rel="stylesheet" href="/admin-theme/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/admin-theme/assets/simple-line-icons/css/simple-line-icons.css">
     <!-- ANIMATE.CSS-->
-    <link rel="stylesheet" href="/admin-theme/vendor/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/admin-theme/assets/animate.css/animate.min.css">
     <!-- WHIRL (spinners)-->
-    <link rel="stylesheet" href="/admin-theme/vendor/whirl/dist/whirl.css">
+    <link rel="stylesheet" href="/admin-theme/assets/whirl/dist/whirl.css">
     <!--chosen-->
-    <link rel="stylesheet" href="/admin-theme/vendor/chosen_v1.2.0/chosen.min.css">
+    <link rel="stylesheet" href="/admin-theme/assets/chosen_v1.2.0/chosen.min.css">
     <!-- TAGS INPUT-->
-    <link rel="stylesheet" href="/admin-theme/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="/admin-theme/assets/bootstrap-tagsinput/dist/bootstrap-tagsinput.css">
     <!-- =============== PAGE VENDOR STYLES ===============-->
     <!-- SELECT2-->
-    <link rel="stylesheet" href="/admin-theme/vendor/select2/dist/css/select2.css">
-    <link rel="stylesheet" href="/admin-theme/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css">
+    <link rel="stylesheet" href="/admin-theme/assets/select2/dist/css/select2.css">
+    <link rel="stylesheet" href="/admin-theme/assets/select2-bootstrap-theme/dist/select2-bootstrap.css">
     <!-- WEATHER ICONS-->
-    <link rel="stylesheet" href="/admin-theme/vendor/weather-icons/css/weather-icons.min.css">
+    <link rel="stylesheet" href="/admin-theme/assets/weather-icons/css/weather-icons.min.css">
     <!-- =============== BOOTSTRAP STYLES ===============-->
     <link rel="stylesheet" href="/admin-theme/css/bootstrap.css" id="bscss">
     <!-- =============== APP STYLES ===============-->
@@ -347,56 +347,56 @@
 </div>
 <!-- =============== VENDOR SCRIPTS ===============-->
 <!-- MODERNIZR-->
-<script src="/admin-theme/vendor/modernizr/modernizr.custom.js"></script>
+<script src="/admin-theme/assets/modernizr/modernizr.custom.js"></script>
 <!-- MATCHMEDIA POLYFILL-->
-<script src="/admin-theme/vendor/matchMedia/matchMedia.js"></script>
+<script src="/admin-theme/assets/matchMedia/matchMedia.js"></script>
 <!-- JQUERY-->
-<script src="/admin-theme/vendor/jquery/dist/jquery.js"></script>
+<script src="/admin-theme/assets/jquery/dist/jquery.js"></script>
 <!-- BOOTSTRAP-->
-<script src="/admin-theme/vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/admin-theme/assets/bootstrap/dist/js/bootstrap.js"></script>
 <!-- STORAGE API-->
-<script src="/admin-theme/vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+<script src="/admin-theme/assets/jQuery-Storage-API/jquery.storageapi.js"></script>
 <!-- JQUERY EASING-->
-<script src="/admin-theme/vendor/jquery.easing/js/jquery.easing.js"></script>
+<script src="/admin-theme/assets/jquery.easing/js/jquery.easing.js"></script>
 <!-- ANIMO-->
-<script src="/admin-theme/vendor/animo.js/animo.js"></script>
+<script src="/admin-theme/assets/animo.js/animo.js"></script>
 <!-- SLIMSCROLL-->
-<script src="/admin-theme/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/admin-theme/assets/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- SCREENFULL-->
-<script src="/admin-theme/vendor/screenfull/dist/screenfull.js"></script>
+<script src="/admin-theme/assets/screenfull/dist/screenfull.js"></script>
 <!-- LOCALIZE-->
-<script src="/admin-theme/vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+<script src="/admin-theme/assets/jquery-localize-i18n/dist/jquery.localize.js"></script>
 <!-- RTL demo-->
 <script src="/admin-theme/js/demo/demo-rtl.js"></script>
 <!-- TAGS INPUT-->
-<script src="/admin-theme/vendor/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<script src="/admin-theme/assets/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 <!-- CHOSEN-->
-<script src="/admin-theme/vendor/chosen_v1.2.0/chosen.jquery.min.js"></script>
+<script src="/admin-theme/assets/chosen_v1.2.0/chosen.jquery.min.js"></script>
 <!-- SELECT2-->
-<script src="/admin-theme/vendor/select2/dist/js/select2.js"></script>
+<script src="/admin-theme/assets/select2/dist/js/select2.js"></script>
 <!-- =============== PAGE VENDOR SCRIPTS ===============-->
 <!-- SPARKLINE-->
-<script src="/admin-theme/vendor/sparkline/index.js"></script>
+<script src="/admin-theme/assets/sparkline/index.js"></script>
 <!-- FLOT CHART-->
-<script src="/admin-theme/vendor/Flot/jquery.flot.js"></script>
-<script src="/admin-theme/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-<script src="/admin-theme/vendor/Flot/jquery.flot.resize.js"></script>
-<script src="/admin-theme/vendor/Flot/jquery.flot.pie.js"></script>
-<script src="/admin-theme/vendor/Flot/jquery.flot.time.js"></script>
-<script src="/admin-theme/vendor/Flot/jquery.flot.categories.js"></script>
-<script src="/admin-theme/vendor/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="/admin-theme/assets/Flot/jquery.flot.js"></script>
+<script src="/admin-theme/assets/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="/admin-theme/assets/Flot/jquery.flot.resize.js"></script>
+<script src="/admin-theme/assets/Flot/jquery.flot.pie.js"></script>
+<script src="/admin-theme/assets/Flot/jquery.flot.time.js"></script>
+<script src="/admin-theme/assets/Flot/jquery.flot.categories.js"></script>
+<script src="/admin-theme/assets/flot-spline/js/jquery.flot.spline.min.js"></script>
 <!-- CLASSY LOADER-->
-<script src="/admin-theme/vendor/jquery-classyloader/js/jquery.classyloader.min.js"></script>
+<script src="/admin-theme/assets/jquery-classyloader/js/jquery.classyloader.min.js"></script>
 <!-- MOMENT JS-->
-<script src="/admin-theme/vendor/moment/min/moment-with-locales.min.js"></script>
+<script src="/admin-theme/assets/moment/min/moment-with-locales.min.js"></script>
 <!-- SKYCONS-->
-<script src="/admin-theme/vendor/skycons/skycons.js"></script>
+<script src="/admin-theme/assets/skycons/skycons.js"></script>
 <!-- DEMO-->
 <script src="/admin-theme/js/demo/demo-flot.js"></script>
 <!-- VECTOR MAP-->
-<script src="/admin-theme/vendor/ika.jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/admin-theme/vendor/ika.jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="/admin-theme/vendor/ika.jvectormap/jquery-jvectormap-us-mill-en.js"></script>
+<script src="/admin-theme/assets/ika.jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/admin-theme/assets/ika.jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/admin-theme/assets/ika.jvectormap/jquery-jvectormap-us-mill-en.js"></script>
 <script src="/admin-theme/js/demo/demo-vector-map.js"></script>
 <script src="/admin-theme/js/app.js"></script>
 <script src="/admin-theme/js/custom.js"></script>
