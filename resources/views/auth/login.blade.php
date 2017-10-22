@@ -33,7 +33,7 @@
                     <div class="panel-heading text-center">
                         <a href="#">
                             <img src="/admin-theme/img/favicon.png" alt="Image"
-                                 class="block-center img-rounded" style="width: 20%">
+                                 class="block-center img-rounded" style="width: 5%">
                         </a>
                     </div>
                     <div class="panel-body">
