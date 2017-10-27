@@ -42,7 +42,7 @@
                             {{ csrf_field() }}
                             <div class="form-group has-feedback">
                                 <input id="exampleInputEmail1" type="email" placeholder="Enter email" autocomplete="off"
-                                       required class="form-control" name="email">
+                                       required class="form-control" name="email_address">
                                 <span class="fa fa-envelope form-control-feedback text-muted"></span>
                             </div>
                             <div class="form-group has-feedback">

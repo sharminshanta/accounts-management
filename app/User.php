@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'uuid', 'username', 'email_address', 'password', 'status'
     ];
 
     /**
@@ -35,7 +35,7 @@ class User extends Authenticatable
     {
         $user = [];
         try {
-            $user = self::where('email', $postData['email'])
+            $user = self::where('email_address', $postData['email_address'])
                 ->where('password', $postData['password'])
                 ->first();
             if ($user) {
@@ -57,7 +57,7 @@ class User extends Authenticatable
     {
         $user = [];
         try {
-            $user = self::where('email', $email)
+            $user = self::where('email_address', $email)
                 ->first();
             if ($user) {
                 return $user;
@@ -67,5 +67,17 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isAdmin()
+    {
+        return true;
+        /*if (isset($this->role))
+            return $this->role == 1 ? true : false;
+        else
+            return false;*/
     }
 }

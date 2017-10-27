@@ -56,7 +56,7 @@ class LoginController extends Controller
     {
         $user = User::authentication($request);
         if ($user) {
-            $userDetails = User::details($user['email']);
+            $userDetails = User::details($user['email_address']);
             \Session::put('authinfo', $userDetails);
             \Session::flash('success', 'Account has been created successfully. Please login');
             return redirect('/dashboard');

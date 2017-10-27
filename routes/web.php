@@ -15,3 +15,9 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/dashboard', 'DashboardController@home');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth.admin']], function () {
+    //Route::resource('users', 'UserController');
+    Route::get('/users/create', 'UserController@create');
+
+});
