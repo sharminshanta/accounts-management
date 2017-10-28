@@ -60,12 +60,13 @@ class LoginController extends Controller
             $user = User::authentication($request);
             if (!$user) {
                 Log::error('There has no user with this credential', ['credential' => $postData]);
+                \Session::flash('error', "Oh No! Credential is mismatched");
                 return redirect('/');
             }
 
-            //$userDetails = User::details($user['email_address']);
-            Log::info('User has been successfully login in dashboard');
-            \Session::put('authinfo', $request['email_address']);
+            //$userDetails = User::details($user['uuid']);
+            Log::info('User has been successfully login in dashboard', ['user_details' => $user]);
+            \Session::put('authinfo', $user['uuid']);
             return redirect('/dashboard');
         } catch (\Exception $exception) {
             throw $exception;

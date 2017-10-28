@@ -36,7 +36,32 @@
                                  class="block-center img-rounded" style="width: 5%">
                         </a>
                     </div>
+
                     <div class="panel-body">
+                        <div class="text-center text-capitalize">
+                            @if(Session::has('success'))
+                                <div class="row">
+                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {{ Session::get('success') }}
+                                    </div>
+                                </div>
+                            @elseif(Session::has('error'))
+                                <div class="row">
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {{ Session::get('error') }}
+                                    </div>
+                                </div>
+                            @elseif(Session::has('warning'))
+                                <div class="row">
+                                    <div class="alert alert-warning alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        {{ Session::get('warning') }}
+                                    </div>
+                                </div>
+                            @endif
+                        </div> <br>
                         <p class="text-center pv">SIGN IN TO CONTINUE</p>
                         <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" method="POST" action="/login">
                             {{ csrf_field() }}

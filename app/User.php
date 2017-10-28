@@ -65,11 +65,11 @@ class User extends Authenticatable
      * @return array|bool|\Illuminate\Database\Eloquent\Model|null|static
      * @throws \Exception
      */
-    public static function details($email)
+    public static function details($uuid)
     {
         $user = [];
         try {
-            $user = self::where('email_address', $email)
+            $user = self::where('uuid', $uuid)
                 ->where('status', 1)
                 ->first();
             if ($user) {
