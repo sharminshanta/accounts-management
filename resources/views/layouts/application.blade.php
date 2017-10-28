@@ -7,7 +7,7 @@
     <meta name="description" content="Bootstrap Admin App + jQuery">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
     <title>@yield('title') | Besofty Software Limited</title>
-    <link rel="shortcut icon" type="image/png" href="//admin-theme/img/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/admin-theme/img/favicon.png"/>
     <!-- =============== VENDOR STYLES ===============-->
     <!-- FONT AWESOME-->
     <link rel="stylesheet" href="/admin-theme/assets/fontawesome/css/font-awesome.min.css">
@@ -209,7 +209,7 @@
                     <!-- END user info-->
                     <!-- Iterates over all sidebar items-->
                     <li class=" active">
-                        <a href="/admin/dashboard" title="Dashboard">
+                        <a href="/dashboard" title="Dashboard">
                             <em class="icon-speedometer"></em>
                             <span data-localize="sidebar.nav.WIDGETS">Dashboard</span>
                         </a>

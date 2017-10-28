@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
