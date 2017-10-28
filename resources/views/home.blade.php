@@ -2,6 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="row">
+        {{ Session::get('authinfo') }}
         <div class="col-lg-3 col-sm-6">
             <!-- START widget-->
             <div class="panel bg-info-light pt b0 widget">

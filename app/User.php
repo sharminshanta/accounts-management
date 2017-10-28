@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Contracts\Logging\Log;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -45,9 +46,12 @@ class User extends Authenticatable
         try {
             $user = self::where('email_address', $postData['email_address'])
                 ->where('password', $postData['password'])
+                ->where('status', 1)
                 ->first();
             if ($user) {
                 return $user;
+            } else {
+
             }
         } catch (\Exception $exception) {
             throw $exception;
@@ -66,6 +70,7 @@ class User extends Authenticatable
         $user = [];
         try {
             $user = self::where('email_address', $email)
+                ->where('status', 1)
                 ->first();
             if ($user) {
                 return $user;

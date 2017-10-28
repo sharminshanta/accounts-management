@@ -12,12 +12,15 @@
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
-Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/dashboard', 'DashboardController@home')->middleware('auth');
 
-Route::get('/dashboard', 'DashboardController@home');
-
-Route::group(['prefix' => 'admin', 'middleware' => ['auth.admin']], function () {
+/**
+ * Middleware has stored in kernel.php (/app/Http/Middleware)
+ */
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'auth.admin']], function () {
     Route::resource('users', 'UserController');
     //Route::get('/users/create', 'UserController@create');
 
 });
+
+Route::get('/logout', 'Auth\LoginController@logout');

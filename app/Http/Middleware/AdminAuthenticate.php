@@ -16,10 +16,14 @@ class AdminAuthenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (User::isAdmin()) {
+        /*if (User::isAdmin()) {
             return $next($request);
+        }*/
+
+        if (!\Session::get('authinfo')) {
+            return redirect('/');
         }
 
-        return redirect('/');
+        return $next($request);
     }
 }

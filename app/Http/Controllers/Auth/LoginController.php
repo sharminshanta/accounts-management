@@ -55,14 +55,33 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $user = User::authentication($request);
-        if ($user) {
-            $userDetails = User::details($user['email_address']);
-            \Session::put('authinfo', $userDetails);
-            \Session::flash('success', 'Account has been created successfully. Please login');
+        $postData = $_POST;
+        try {
+            $user = User::authentication($request);
+            if (!$user) {
+                Log::error('There has no user with this credential', ['credential' => $postData]);
+                return redirect('/');
+            }
+
+            //$userDetails = User::details($user['email_address']);
+            Log::info('User has been successfully login in dashboard');
+            \Session::put('authinfo', $request['email_address']);
             return redirect('/dashboard');
+        } catch (\Exception $exception) {
+            throw $exception;
         }
 
+        return redirect('/');
+    }
+
+    /**
+     * Log the user out of the application.
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function logout(Request $request)
+    {
+       \Session::invalidate();
         return redirect('/');
     }
 }
