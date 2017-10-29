@@ -2,12 +2,6 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="row">
-        <?php
-            $authinfo = \Besofty\Web\Attendance\Model\User::details(Session::get('authinfo'));
-            $userDetails = \Besofty\Web\Attendance\Model\Profile::detailsByUserID($authinfo['id']);
-            $roleID = \Besofty\Web\Attendance\Model\UsersRole::getRoleID($authinfo['id']);
-            $userRole = \Besofty\Web\Attendance\Model\Role::getName($roleID['role_id']);
-        ?>
         <div class="col-lg-3 col-sm-6">
             <!-- START widget-->
             <div class="panel bg-info-light pt b0 widget">

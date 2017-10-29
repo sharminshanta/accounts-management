@@ -30,9 +30,10 @@ class UsersRole extends Model
                 ->select('role_id')
                 ->first();
             if ($roleID) {
-                Log::info('User Role is returned from db', ['role_id' => $roleID]);
+                Log::info('User\'s RoleID is Returned From DB', ['role_id' => $roleID]);
                 return $roleID;
             }
+            Log::error('User\'s RoleID Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }

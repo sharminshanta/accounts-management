@@ -3,6 +3,7 @@
 namespace Besofty\Web\Attendance\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Profile extends Model
 {
@@ -30,8 +31,10 @@ class Profile extends Model
                 ->first();
 
             if ($details) {
+                Log::info('User\'s Details is Returned From DB', ['user_details' => $details]);
                 return $details;
             }
+            Log::error('User\'s Details Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }

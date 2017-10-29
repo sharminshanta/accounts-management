@@ -48,9 +48,10 @@ class Role extends Model
                 ->select('slug', 'name')
                 ->first();
             if ($role) {
-                Log::info('Role name is return from db', ['role' => $role]);
+                Log::info('User\'s Role Name is Returned From DB', ['role' => $role]);
                 return $role;
             }
+            Log::error('User\'s Role Name Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }

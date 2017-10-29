@@ -64,7 +64,6 @@ class LoginController extends Controller
                 return redirect('/');
             }
 
-            //$userDetails = User::details($user['uuid']);
             Log::info('User has been successfully login in dashboard', ['user_details' => $user]);
             \Session::put('authinfo', $user['uuid']);
             return redirect('/dashboard');
