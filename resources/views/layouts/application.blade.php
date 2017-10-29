@@ -36,20 +36,28 @@
     <link rel="stylesheet" href="/admin-theme/css/custom.css">
 </head>
 
-<body  class="ng-cloak">
+<body class="ng-cloak">
+    <?php
+        $authinfo = \Besofty\Web\Attendance\Model\User::details(Session::get('authinfo'));
+        $userDetails = \Besofty\Web\Attendance\Model\Profile::detailsByUserID($authinfo['id']);
+        $roleID = \Besofty\Web\Attendance\Model\UsersRole::getRoleID($authinfo['id']);
+        $userRole = \Besofty\Web\Attendance\Model\Role::getName($roleID['role_id']);
+    ?>
 <div class="wrapper" ng-controller="MainCtrl">
     <!-- top navbar-->
     <header class="topnavbar-wrapper">
-           <!-- START Top Navbar-->
+        <!-- START Top Navbar-->
         <nav role="navigation" class="navbar topnavbar">
             <!-- START navbar header-->
             <div class="navbar-header">
                 <a href="admin/dashboard" class="navbar-brand">
                     <div class="brand-logo">
-                        <img src="/admin-theme/img/favicon.png" alt="App Logo" class="img-responsive" style="width: 20%">
+                        <img src="/admin-theme/img/favicon.png" alt="App Logo" class="img-responsive"
+                             style="width: 20%">
                     </div>
                     <div class="brand-logo-collapsed">
-                        <img src="/admin-theme/img/favicon.png" alt="App Logo" class="img-responsive" style="width: 60%">
+                        <img src="/admin-theme/img/favicon.png" alt="App Logo" class="img-responsive"
+                             style="width: 60%">
                     </div>
                 </a>
             </div>
@@ -64,7 +72,8 @@
                             <em class="fa fa-navicon"></em>
                         </a>
                         <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
-                        <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                        <a href="#" data-toggle-state="aside-toggled" data-no-persist="true"
+                           class="visible-xs sidebar-toggle">
                             <em class="fa fa-navicon"></em>
                         </a>
                     </li>
@@ -193,15 +202,17 @@
                                 <!-- User picture-->
                                 <div class="user-block-picture">
                                     <div class="user-block-status">
-                                        <img src="/admin-theme/img/profiles" alt="Avatar" width="60" height="60" class="img-thumbnail img-circle"
+                                        <img src="/admin-theme/img/profiles" alt="Avatar" width="60" height="60"
+                                             class="img-thumbnail img-circle"
                                              onerror="this.onerror=null;this.src='/admin-theme/img/profile.png ';">
                                         <div class="circle circle-success circle-lg"></div>
                                     </div>
                                 </div>
                                 <!-- Name and Job-->
                                 <div class="user-block-info">
-                                    <span class="user-block-name">Hello, <a href="/profile"> Shanta</a></span>
-                                    <span class="user-block-role">Admin</span>
+                                    <span class="user-block-name">Hello, <a
+                                                href="/profile"> {{ $userDetails['first_name'] }} {{ $userDetails['last_name'] }}</a></span>
+                                    <span class="user-block-role">{{ $userRole['name'] }}</span>
                                 </div>
                             </div>
                         </div>
@@ -221,44 +232,26 @@
                             <span data-localize="sidebar.nav.WIDGETS">My Profile</span>
                         </a>
                     </li>
-
-                    <li class=" ">
-                        <a href="#users" title="Manage Users" data-toggle="collapse">
-                            <em class="fa fa-users"></em>
-                            <span data-localize="sidebar.nav.DASHBOARD">Manage Users</span>
-                        </a>
-                        <ul id="users" class="nav sidebar-subnav collapse">
-                            <li class=" ">
-                                <a href="/admin/users/create" title="Create User">
-                                    <span>Create</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="/admin/users" title="User List">
-                                    <span>List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class=" ">
-                        <a href="#events" title="Manage Event" data-toggle="collapse">
-                            <em class="icon-screen-tablet"></em>
-                            <span data-localize="sidebar.nav.DASHBOARD">Manage Event</span>
-                        </a>
-                        <ul id="events" class="nav sidebar-subnav collapse">
-                            <li class=" ">
-                                <a href="/admin/events/general" title="Create Event">
-                                    <span>Create</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="/admin/events" title="Events List">
-                                    <span>List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if ($userRole['slug'] == 'super-administrator')
+                        <li class=" ">
+                            <a href="#users" title="Manage Users" data-toggle="collapse">
+                                <em class="fa fa-users"></em>
+                                <span data-localize="sidebar.nav.DASHBOARD">Manage Users</span>
+                            </a>
+                            <ul id="users" class="nav sidebar-subnav collapse">
+                                <li class=" ">
+                                    <a href="/admin/users/create" title="Create User">
+                                        <span>Create</span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="/admin/users" title="User List">
+                                        <span>List</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class=" ">
                         <a href="#settings" title="Settings" data-toggle="collapse">
                             <em class="icon-settings"></em>
@@ -273,56 +266,6 @@
                             <li class=" ">
                                 <a href="/admin/questions" title="Questions">
                                     <span>Questions</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=" ">
-                        <a href="#digital" title="Digital Assets" data-toggle="collapse">
-                            <em class="icon-diamond"></em>
-                            <span data-localize="sidebar.nav.DASHBOARD">Digital Assets</span>
-                        </a>
-                        <ul id="digital" class="nav sidebar-subnav collapse">
-                            <li class=" ">
-                                <a href="/assets" title="Upload New Asset">
-                                    <span>Upload New Asset</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=" ">
-                        <a href="#groups" title="Groups" data-toggle="collapse">
-                            <em class="icon-people"></em>
-                            <span data-localize="sidebar.nav.DASHBOARD">Groups</span>
-                        </a>
-                        <ul id="groups" class="nav sidebar-subnav collapse">
-                            <li class=" ">
-                                <a href="/groups/create" title="Create Group">
-                                    <span>Create</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="/groups" title="Group List">
-                                    <span>List</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class=" ">
-                        <a href="#layouts" title="Layouts" data-toggle="collapse">
-                            <em class="icon-layers"></em>
-                            <span data-localize="sidebar.nav.DASHBOARD">Layouts</span>
-                        </a>
-                        <ul id="layouts" class="nav sidebar-subnav collapse">
-                            <li class=" ">
-                                <a href="/admin/layouts/create" title="Create Layout">
-                                    <span>Create</span>
-                                </a>
-                            </li>
-                            <li class=" ">
-                                <a href="/admin/layouts" title="Layouts List">
-                                    <span>List</span>
                                 </a>
                             </li>
                         </ul>
