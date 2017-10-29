@@ -58,4 +58,28 @@ class Role extends Model
 
         return false;
     }
+
+    /**
+     * @param $slug
+     * @return array|bool|Model|null|static
+     * @throws \Exception
+     */
+    public static function isAdmin($slug)
+    {
+        $data = [];
+        try {
+            $data = self::where('slug', $slug)
+                ->select('slug')
+                ->first();
+            if ($data) {
+                Log::info('User\'s Role Slug is Returned From DB', ['Slug' => $data]);
+                return $data;
+            }
+            Log::error('User\'s Role Slug Name Doesn\'t Fetched');
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
+
+        return false;
+    }
 }

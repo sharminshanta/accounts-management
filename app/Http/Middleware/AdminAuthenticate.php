@@ -2,7 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\User;
+use Besofty\Web\Attendance\Model\User;
+use Besofty\Web\Attendance\Model\Role;
+use Besofty\Web\Attendance\Model\UsersRole;
 use Closure;
 
 class AdminAuthenticate
@@ -16,14 +18,18 @@ class AdminAuthenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        /*if (User::isAdmin()) {
+        try {
+            $authinfo = \Besofty\Web\Attendance\Model\User::details(\Session::get('authinfo'));
+            $roleID = \Besofty\Web\Attendance\Model\UsersRole::getRoleID($authinfo['id']);
+            $userRole = \Besofty\Web\Attendance\Model\Role::getName($roleID['role_id']);
+            $isAdmin = Role::isAdmin($userRole['slug']);
+
+            if ($isAdmin['slug'] != 'super-administrator' && $isAdmin['slug'] != 'administrator' ) {
+                return redirect('/logout');
+            }
             return $next($request);
-        }*/
-
-        if (!\Session::get('authinfo')) {
-            return redirect('/');
+        } catch (\Exception $exception) {
+            throw $exception;
         }
-
-        return $next($request);
     }
 }

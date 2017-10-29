@@ -79,16 +79,4 @@ class User extends Authenticatable
 
         return false;
     }
-
-    /**
-     * @return bool
-     */
-    public static function isAdmin()
-    {
-        return true;
-        /*if (isset($this->role))
-            return $this->role == 1 ? true : false;
-        else
-            return false;*/
-    }
 }
