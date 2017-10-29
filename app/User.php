@@ -50,8 +50,6 @@ class User extends Authenticatable
                 ->first();
             if ($user) {
                 return $user;
-            } else {
-
             }
         } catch (\Exception $exception) {
             throw $exception;
