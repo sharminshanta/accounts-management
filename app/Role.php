@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Besofty\Web\Attendance\Model;
 
 use Illuminate\Database\Eloquent\Model;
 

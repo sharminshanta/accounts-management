@@ -2,8 +2,8 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="row">
-        {{ $user = \App\User::details(Session::get('authinfo'))  }}
-        {{ $user['username'] }}
+        {{--{{ $user = \Besofty\Web\Attendance\App\User::details(Session::get('authinfo'))  }}
+        {{ $user['username'] }}--}}
         <div class="col-lg-3 col-sm-6">
             <!-- START widget-->
             <div class="panel bg-info-light pt b0 widget">
