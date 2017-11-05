@@ -5,7 +5,7 @@
         <!-- START Language list-->
         <div class="pull-right">
             <div class="btn-group">
-                <a href="/admin/users" class="mb-sm btn btn-info btn-outline">See Users List</a>
+                <a href="#" class="mb-sm btn btn-info btn-outline">See Users List</a>
             </div>
         </div>
         Create User
@@ -83,7 +83,7 @@
                         <div class="form-group  {{ $errors->has('role') ? ' has-error' : '' }}">
                             <label>Role</label>
                             <select class="form-control" name="role">
-                                <option value="" hidden="hidden">Choose User</option>
+                                <option value="" hidden="hidden">Choose Role</option>
                                 @foreach($roles as $role)
                                     <option value="{{$role['id']}}">{{$role['name']}}</option>
                                 @endforeach
