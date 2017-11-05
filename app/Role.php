@@ -26,10 +26,12 @@ class Role extends Model
        try {
            $roles = $this->get();
            if ($roles) {
+               Log::info('Role list has fetched from DB');
                return $roles;
            }
        } catch (\Exception $exception) {
-           throw $exception;
+           Log::info($exception->getMessage());
+           Log::debug($exception->getTraceAsString());
        }
 
        return false;

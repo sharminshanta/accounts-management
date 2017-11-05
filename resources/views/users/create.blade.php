@@ -83,9 +83,10 @@
                         <div class="form-group  {{ $errors->has('role') ? ' has-error' : '' }}">
                             <label>Role</label>
                             <select class="form-control" name="role">
-                                <option value="" hidden>Choose User</option>
-                                <option value="2" {{ old('role') == 2 ? 'selected':'' }}> General User</option>
-                                <option value="1" {{ old('role') == 1 ? 'selected':'' }}>Admin</option>
+                                <option value="" hidden="hidden">Choose User</option>
+                                @foreach($roles as $role)
+                                    <option value="{{$role['id']}}">{{$role['name']}}</option>
+                                @endforeach
                             </select>
                             @if ($errors->has('role'))
                                 <span class="help-block">
