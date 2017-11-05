@@ -10,7 +10,7 @@ class Profile extends Model
     /**
      * @var string
      */
-    public $table = 'users_profile';
+    public $table = 'users_profiles';
 
     /**
      * @var bool
