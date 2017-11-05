@@ -160,10 +160,10 @@
                         <!-- START Dropdown menu-->
                         <ul role="menu" class="dropdown-menu animated fadeIn">
                             <li>
-                                <a href="/profile">My Profile</a>
+                                <a href="#">My Profile</a>
                             </li>
                             <li>
-                                <a href="/profile/settings">Settings</a>
+                                <a href="#">Settings</a>
                             </li>
                             <li>
                                 <a href="/logout">Logout</a>
@@ -211,7 +211,7 @@
                                 <!-- Name and Job-->
                                 <div class="user-block-info">
                                     <span class="user-block-name">Hello, <a
-                                                href="/profile"> {{ $userDetails['first_name'] }} {{ $userDetails['last_name'] }}</a></span>
+                                                href="#"> {{ $userDetails['first_name'] }} {{ $userDetails['last_name'] }}</a></span>
                                     <span class="user-block-role">{{ $userRole['name'] }}</span>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@
                     </li>
 
                     <li class="">
-                        <a href="/profile" title="My Profile">
+                        <a href="#" title="My Profile">
                             <em class="icon-user"></em>
                             <span data-localize="sidebar.nav.WIDGETS">My Profile</span>
                         </a>
@@ -245,7 +245,7 @@
                                     </a>
                                 </li>
                                 <li class=" ">
-                                    <a href="/admin/users" title="User List">
+                                    <a href="#" title="User List">
                                         <span>List</span>
                                     </a>
                                 </li>
@@ -259,12 +259,12 @@
                         </a>
                         <ul id="settings" class="nav sidebar-subnav collapse">
                             <li class=" ">
-                                <a href="/admin/settings" title="General settings">
+                                <a href="#" title="General settings">
                                     <span>General settings</span>
                                 </a>
                             </li>
                             <li class=" ">
-                                <a href="/admin/questions" title="Questions">
+                                <a href="#" title="Questions">
                                     <span>Questions</span>
                                 </a>
                             </li>
