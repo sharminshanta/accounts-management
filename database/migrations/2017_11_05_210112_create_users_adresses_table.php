@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersAddressesTable extends Migration
+class CreateUsersAdressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,6 @@ class CreateUsersAddressesTable extends Migration
      */
     public function up()
     {
-
         Schema::create('users_addresses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('uuid', 36)->unique();
@@ -24,7 +23,6 @@ class CreateUsersAddressesTable extends Migration
             $table->string('state', 80)->default(null);
             $table->string('postal_code', 80)->default(null);
             $table->string('country', 80)->default(null);
-            $table->string('phone', 80)->default(null);
             $table->string('fax', 80)->default(null);
             $table->string('type')->default('Primary');
             $table->timestamps();
