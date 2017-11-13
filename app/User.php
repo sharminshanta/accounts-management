@@ -16,7 +16,7 @@ class User extends Authenticatable
     /**
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'uuid', 'username', 'email_address', 'password', 'status'
+        'uuid', 'username', 'email_address', 'password', 'last_seen'
     ];
 
     /**
@@ -78,5 +78,28 @@ class User extends Authenticatable
         }
 
         return false;
+    }
+
+    /**
+     * @param $request
+     * @return $this|\Illuminate\Database\Eloquent\Model
+     */
+    public function createUser($request)
+    {
+        $user = User::create([
+            'uuid' => 111111,
+            'email_address' => $request->email_address,
+            'username' => $request->email_address,
+            'password' => md5($request->password),
+            'last_seen' => date('y-m-d h:i:s'),
+        ]);
+
+        $profile = Profile::create([
+            'user_id' => $user->id,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+        ]);
+
+        $profile->touchOwners()->sync([$user->id]);
     }
 }

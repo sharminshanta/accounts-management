@@ -15,7 +15,16 @@ class Profile extends Model
     /**
      * @var bool
      */
-    public $timestamps = true;
+    public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'first_name', 'last_name'
+    ];
 
     /**
      * @return mixed

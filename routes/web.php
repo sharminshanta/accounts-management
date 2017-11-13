@@ -10,12 +10,15 @@
 |
 */
 
-// Default Route
+// Default Route (Login route)
 Route::get('/', 'Auth\LoginController@showLoginForm');
+// User Authentication route
 Route::post('/login', 'Auth\LoginController@login');
 
-//signup route
+//Show sign up form route
 Route::get('/signup', 'PublicAuthController@showSignupForm');
+//Sign up form post route
+Route::post('/signup', 'PublicAuthController@store');
 
 /**
  * Dashboard Route

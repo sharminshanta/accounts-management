@@ -38,7 +38,8 @@
                     </div>
                     <div class="panel-body">
                         <p class="text-center pv">SIGNUP TO GET INSTANT ACCESS</p>
-                        <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" role="form" method="POST" action="">
+                        <form role="form" data-parsley-validate="" novalidate="" class="mb-lg" role="form" method="POST" action="/signup">
+                            {{ csrf_field() }}
                             <div class="form-group has-feedback">
                                 <label for="signupFirstName" class="text-muted">First Name</label>
                                 <input id="signupFirstName" type="text" placeholder="First Name" name="first_name"
@@ -56,7 +57,7 @@
                             <div class="form-group has-feedback">
                                 <label for="signupInputEmail1" class="text-muted">Email address</label>
                                 <input id="signupInputEmail1" type="email" placeholder="email" autocomplete="off" required
-                                       class="form-control" name="email">
+                                       class="form-control" name="email_address">
                                 <span class="fa fa-envelope form-control-feedback text-muted"></span>
                             </div>
 
