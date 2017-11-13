@@ -14,6 +14,9 @@
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::post('/login', 'Auth\LoginController@login');
 
+//signup route
+Route::get('/signup', 'PublicAuthController@showSignupForm');
+
 /**
  * Dashboard Route
  * Middleware has stored in kernel.php (/app/Http/Middleware)

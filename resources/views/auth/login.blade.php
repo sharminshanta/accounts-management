@@ -89,7 +89,7 @@
                             <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
                         </form>
                         <p class="pt-lg text-center">Need to Signup?</p>
-                        <a href="#" class="btn btn-block btn-default">Create Account</a>
+                        <a href="/signup" class="btn btn-block btn-default">Create Account</a>
                     </div>
                 </div>
             </div>
