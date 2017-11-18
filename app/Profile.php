@@ -27,6 +27,14 @@ class Profile extends Model
     ];
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function User()
+    {
+        return $this->belongsTo(User::class, "user_id");
+    }
+
+    /**
      * @return mixed
      */
     public static function detailsByUserID($userID)

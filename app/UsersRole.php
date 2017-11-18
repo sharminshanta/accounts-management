@@ -18,6 +18,29 @@ class UsersRole extends Model
     public $timestamps = true;
 
     /**
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'role_id'
+    ];
+
+
+    /**
+     * @param $userID
+     */
+    public function assignUserRole()
+    {
+        $defaultRole = Role::where('slug', 'general-user')->select('id')->first();
+        $userRole = [
+            'user_id' => 1,
+            'role_id' => $defaultRole['id']
+        ];
+
+        //Assign default role for this user
+        $this->create($userRole);
+    }
+
+    /**
      * @param $userID
      * @return array|bool|Model|null|static
      * @throws \Exception
