@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Besofty\Web\Attendance\Model\User;
+use Besofty\Web\Attendance\Model\UsersRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PublicAuthController extends Controller
 {
@@ -35,35 +37,49 @@ class PublicAuthController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $this->userValidation(
-            $request->all(),
-            [
-                'first_name' => 'required|max:30',
-                'last_name' => 'required|max:30',
-                'email_address' => 'required|email|unique:users',
-                'password' => 'required|min:6',
-                'password_confirmation' => 'required|min:6|same:password'
-            ]
-        );
+        $postdata = $request->all();
 
+        //Setting the validation rules
+        $validationRules = [
+            'first_name' => 'required|max:15',
+            'last_name' => 'required|max:15',
+            'email_address' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|min:6|same:password'
+        ];
+
+        //Checking the validation rules
+        $validation = $this->userValidation($postdata, $validationRules);
+
+        /**
+         * If the validation rules fail then validation message will stored in log file
+         * then a message will stored in session
+         * and redirect to same page with errors message
+         */
         if ($validation->fails()) {
-
+            Log::error('From Validation Error Occurs', ['validation-error' => $validation->messages()]);
             \Session::flash('error', 'Sorry, Something went wrong');
             return redirect()->back()
-                ->withInput($request->all())
+                ->withInput($postdata)
                 ->withErrors(
                     $validation->messages()
                 );
         }
 
-        $user = new User();
-        $isCreated = $user->createUser($request);
-        if ($isCreated) {
-            \Session::flash('success', 'User has been created successfully');
+        try {
+            $userModel = new User();
+            $isCreated = $userModel->createUser($request);
+            if ($isCreated) {
+                Log::error('User has been created successfully', ['postdata' => $postdata]);
+                \Session::flash('success', 'User has been created successfully');
 
-            return redirect('/admin/users/' . $isCreated->uuid->__toString());
-        } else {
-            \Session::flash('warning', 'Sorry, No changes found');
+                return redirect('/');
+            } else {
+                \Session::flash('warning', 'Sorry, No changes found');
+            }
+        } catch (\Exception $exception) {
+            Log::error('ERROR', [$exception->getTraceAsString()]);
+            Log::debug('DEBUG', [$exception->getTraceAsString()]);
         }
     }
 
@@ -121,9 +137,9 @@ class PublicAuthController extends Controller
     {
         $messages = [
             'first_name.required' => 'First name is required',
-            'first_name.max' => 'First name cannot be more than 30 characters',
+            'first_name.max' => 'First name cannot be more than 15 characters',
             'last_name.required' => 'Last name is required',
-            'last_name.max' => 'Last name cannot be more than 30 characters',
+            'last_name.max' => 'Last name cannot be more than 15 characters',
             'email_address.required' => 'Email is required',
             'email_address.email' => 'Invalid email adderss',
             'email_address.unique' => 'This email address already taken',

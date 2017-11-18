@@ -37,6 +37,22 @@ class User extends Authenticatable
     ];
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function profile()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function userRole()
+    {
+        return $this->belongsToMany(UsersRole::class);
+    }
+
+    /**
      * @param $postData
      * @return \Illuminate\Database\Eloquent\Model|null|static
      */
@@ -86,20 +102,31 @@ class User extends Authenticatable
      */
     public function createUser($request)
     {
-        $user = User::create([
-            'uuid' => 111111,
-            'email_address' => $request->email_address,
-            'username' => $request->email_address,
-            'password' => md5($request->password),
-            'last_seen' => date('y-m-d h:i:s'),
-        ]);
+        try {
+            $user = [
+                'uuid' => '111152519998910rrd',
+                'email_address' => $request->email_address,
+                'username' => $request->email_address,
+                'password' => md5($request->password),
+                'last_seen' => date('y-m-d h:i:s'),
+            ];
 
-        $profile = Profile::create([
-            'user_id' => $user->id,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-        ]);
+            //Create a new user
+            $user = $this->create($user);
 
-        $profile->touchOwners()->sync([$user->id]);
+            if ($user) {
+                $profile = [
+                    'user_id' => $user->id,
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                ];
+
+                //Assign profile data for this user
+                $profile = $this->profile()->save(new Profile($profile));
+            }
+
+        } catch (\Exception $exception) {
+            throw $exception;
+        }
     }
 }

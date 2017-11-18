@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Bootstrap Admin App + jQuery">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-    <title>Login</title>
+    <title>Signup | Web Accounts</title>
     <link rel="shortcut icon" type="image/png" href="/admin-theme/img/favicon.png"/>
     <!-- =============== VENDOR STYLES ===============-->
     <!-- FONT AWESOME-->
@@ -44,35 +44,55 @@
                                 <label for="signupFirstName" class="text-muted">First Name</label>
                                 <input id="signupFirstName" type="text" placeholder="First Name" name="first_name"
                                        autocomplete="off" required class="form-control">
-                                <span class="fa fa-user form-control-feedback text-muted"></span>
+                                @if ($errors->has('first_name'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group has-feedback">
                                 <label for="signupLastName" class="text-muted">Last Name</label>
                                 <input id="signupLastName" type="text" placeholder="Last Name" name="last_name"
                                        autocomplete="off" required class="form-control">
-                                <span class="fa fa-user form-control-feedback text-muted"></span>
+                                @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group has-feedback">
                                 <label for="signupInputEmail1" class="text-muted">Email address</label>
                                 <input id="signupInputEmail1" type="email" placeholder="email" autocomplete="off" required
                                        class="form-control" name="email_address">
-                                <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                                @if ($errors->has('email_address'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('email_address') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group has-feedback">
                                 <label for="signupInputPassword1" class="text-muted">Password</label>
                                 <input id="signupInputPassword1" type="password" placeholder="Password" autocomplete="off" required
                                        class="form-control" name="password">
-                                <span class="fa fa-lock form-control-feedback text-muted"></span>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group has-feedback">
                                 <label for="signupInputRePassword1" class="text-muted">Retype Password</label>
                                 <input id="signupInputRePassword1" type="password" placeholder="Retype Password" autocomplete="off"
                                        required data-parsley-equalto="#signupInputPassword1" class="form-control"
                                        name="password_confirmation">
-                                <span class="fa fa-lock form-control-feedback text-muted"></span>
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong class="text-danger">{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="clearfix">
                                 <div class="checkbox c-checkbox pull-left mt0">

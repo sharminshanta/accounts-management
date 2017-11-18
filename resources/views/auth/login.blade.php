@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Bootstrap Admin App + jQuery">
     <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-    <title>Login</title>
+    <title>Login | Web Accounts</title>
     <link rel="shortcut icon" type="image/png" href="/admin-theme/img/favicon.png"/>
     <!-- =============== VENDOR STYLES ===============-->
     <!-- FONT AWESOME-->
