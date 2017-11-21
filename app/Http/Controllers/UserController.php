@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Besofty\Web\Attendance\Model\Role;
+use Besofty\Web\Attendance\Models\RoleModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -26,10 +26,10 @@ class UserController extends Controller
     public function create()
     {
         try {
-            $roleModel = new Role();
+            $roleModel = new RoleModel();
             $roles = $roleModel->getAll();
         } catch(\Exception $exception) {
-            Log::debug('Role Doesn\'t Fetched');
+            Log::debug('RoleModel Doesn\'t Fetched');
         }
 
         return view('users.create', [

@@ -1,11 +1,11 @@
 <?php
 
-namespace Besofty\Web\Attendance\Model;
+namespace Besofty\Web\Accounts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
-class UsersRole extends Model
+class UsersRoleModel extends Model
 {
     /**
      * @var string
@@ -30,7 +30,7 @@ class UsersRole extends Model
      */
     public function assignUserRole()
     {
-        $defaultRole = Role::where('slug', 'general-user')->select('id')->first();
+        $defaultRole = RoleModel::where('slug', 'general-user')->select('id')->first();
         $userRole = [
             'user_id' => 1,
             'role_id' => $defaultRole['id']
@@ -53,10 +53,10 @@ class UsersRole extends Model
                 ->select('role_id')
                 ->first();
             if ($roleID) {
-                Log::info('User\'s RoleID is Returned From DB', ['role_id' => $roleID]);
+                Log::info('UserModel\'s RoleID is Returned From DB', ['role_id' => $roleID]);
                 return $roleID;
             }
-            Log::error('User\'s RoleID Doesn\'t Fetched');
+            Log::error('UserModel\'s RoleID Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }

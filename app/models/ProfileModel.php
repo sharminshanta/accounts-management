@@ -1,16 +1,16 @@
 <?php
 
-namespace Besofty\Web\Attendance\Model;
+namespace Besofty\Web\Accounts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
-class Profile extends Model
+class ProfileModel extends Model
 {
     /**
      * @var string
      */
-    public $table = 'users_profiles';
+    public $table = 'profile_user';
 
     /**
      * @var bool
@@ -31,7 +31,7 @@ class Profile extends Model
      */
     public function User()
     {
-        return $this->belongsTo(User::class, "user_id");
+        return $this->belongsTo(UserModel::class, "user_id");
     }
 
     /**
@@ -48,10 +48,10 @@ class Profile extends Model
                 ->first();
 
             if ($details) {
-                Log::info('User\'s Details is Returned From DB', ['user_details' => $details]);
+                Log::info('UserModel\'s Details is Returned From DB', ['user_details' => $details]);
                 return $details;
             }
-            Log::error('User\'s Details Doesn\'t Fetched');
+            Log::error('UserModel\'s Details Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }

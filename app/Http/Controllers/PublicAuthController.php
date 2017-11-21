@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Besofty\Web\Attendance\Model\User;
-use Besofty\Web\Attendance\Model\UsersRole;
+use Besofty\Web\Accounts\Models\UserModel;
+use Besofty\Web\Accounts\Models\UsersRoleModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -67,11 +67,11 @@ class PublicAuthController extends Controller
         }
 
         try {
-            $userModel = new User();
+            $userModel = new UserModel();
             $isCreated = $userModel->createUser($request);
-            if ($isCreated) {
-                Log::error('User has been created successfully', ['postdata' => $postdata]);
-                \Session::flash('success', 'User has been created successfully');
+            if ($isCreated == true) {
+                Log::error('UserModel has been created successfully', ['postdata' => $postdata]);
+                \Session::flash('success', 'UserModel has been created successfully');
 
                 return redirect('/');
             } else {

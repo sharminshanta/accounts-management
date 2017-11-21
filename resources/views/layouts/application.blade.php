@@ -199,7 +199,7 @@
                     <li class="has-user-block">
                         <div id="user-block" class="collapse in">
                             <div class="item user-block">
-                                <!-- User picture-->
+                                <UserModelUser picture-->
                                 <div class="user-block-picture">
                                     <div class="user-block-status">
                                         <img src="/admin-theme/img/profiles" alt="Avatar" width="60" height="60"

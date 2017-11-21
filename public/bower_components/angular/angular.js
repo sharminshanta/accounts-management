@@ -23850,7 +23850,7 @@ var inputType = {
         browser.executeScript(scr);
       }
 
-      it('should initialize to model', function() {
+      it(models, function() {
         expect(value.getText()).toContain('2013-W01');
         expect(valid.getText()).toContain('myForm.input.$valid = true');
       });

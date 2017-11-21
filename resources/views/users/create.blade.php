@@ -1,5 +1,5 @@
 @extends('layouts.application')
-@section('title', 'User Create')
+@section('title', 'UserModel')
 @section('content')
     <div class="content-heading">
         <!-- START Language list-->

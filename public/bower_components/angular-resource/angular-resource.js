@@ -224,8 +224,8 @@ function shallowClearAndCopy(src, dst) {
  *   as  methods with the `$` prefix. This allows you to easily perform CRUD operations (create,
  *   read, update, delete) on server-side data like this:
  *   ```js
- *   var User = $resource('/user/:userId', {userId:'@id'});
- *   var user = User.get({userId:123}, function() {
+ *   var UserModel = $resource('/user/:userId', {userId:'@id'});
+ *   var user = UserModel.get({userId:123}, function() {
  *     user.abc = true;
  *     user.$save();
  *   });
@@ -334,15 +334,15 @@ function shallowClearAndCopy(src, dst) {
  *
  * @example
  *
- * # User resource
+ * # UserModel resource
  *
  * When the data is returned from the server then the object is an instance of the resource type and
  * all of the non-GET methods are available with `$` prefix. This allows you to easily support CRUD
  * operations (create, read, update, delete) on server-side data.
 
    ```js
-     var User = $resource('/user/:userId', {userId:'@id'});
-     User.get({userId:123}, function(user) {
+     var UserModel = $resource('/user/:userId', {userId:'@id'});
+     UserModel.get({userId:123}, function(user) {
        user.abc = true;
        user.$save();
      });
@@ -353,8 +353,8 @@ function shallowClearAndCopy(src, dst) {
  * could rewrite the above example and get access to http headers as:
  *
    ```js
-     var User = $resource('/user/:userId', {userId:'@id'});
-     User.get({userId:123}, function(user, getResponseHeaders){
+     var UserModel = $resource('/user/:userId', {userId:'@id'});
+     UserModel.get({userId:123}, function(user, getResponseHeaders){
        user.abc = true;
        user.$save(function(user, putResponseHeaders) {
          //user => saved user object
@@ -366,8 +366,8 @@ function shallowClearAndCopy(src, dst) {
  * You can also access the raw `$http` promise via the `$promise` property on the object returned
  *
    ```
-     var User = $resource('/user/:userId', {userId:'@id'});
-     User.get({userId:123})
+     var UserModel = $resource('/user/:userId', {userId:'@id'});
+     UserModel.get({userId:123})
          .$promise.then(function(user) {
            $scope.user = user;
          });

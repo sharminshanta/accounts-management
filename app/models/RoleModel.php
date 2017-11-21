@@ -1,11 +1,11 @@
 <?php
 
-namespace Besofty\Web\Attendance\Model;
+namespace Besofty\Web\Accounts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 
-class Role extends Model
+class RoleModel extends Model
 {
     /**
      * @var string
@@ -26,7 +26,7 @@ class Role extends Model
        try {
            $roles = $this->get();
            if ($roles) {
-               Log::info('Role list has fetched from DB');
+               Log::info('RoleModel list has fetched from DB');
                return $roles;
            }
        } catch (\Exception $exception) {
@@ -50,10 +50,10 @@ class Role extends Model
                 ->select('slug', 'name')
                 ->first();
             if ($role) {
-                Log::info('User\'s Role Name is Returned From DB', ['role' => $role]);
+                Log::info('UserModel\'s RoleModel Name is Returned From DB', ['role' => $role]);
                 return $role;
             }
-            Log::error('User\'s Role Name Doesn\'t Fetched');
+            Log::error('UserModel\'s RoleModel Name Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }
@@ -74,10 +74,10 @@ class Role extends Model
                 ->select('slug')
                 ->first();
             if ($data) {
-                Log::info('User\'s Role Slug is Returned From DB', ['Slug' => $data]);
+                Log::info('UserModel\'s RoleModel Slug is Returned From DB', ['Slug' => $data]);
                 return $data;
             }
-            Log::error('User\'s Role Slug Name Doesn\'t Fetched');
+            Log::error('UserModel\'s RoleModel Slug Name Doesn\'t Fetched');
         } catch (\Exception $exception) {
             throw $exception;
         }

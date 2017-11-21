@@ -1,10 +1,10 @@
 <?php
 
-namespace Besofty\Web\Attendance\Model;
+namespace Besofty\Web\Accounts\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserAddress extends Model
+class UserAddressModel extends Model
 {
     /**
      * @var string
